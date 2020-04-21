@@ -1,5 +1,5 @@
 # Bismillah
-# Classification
+# Clustering
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
@@ -19,3 +19,14 @@ fig.scatter(data=df, x='eruptions', y='waiting')
 fig.set_title('Old Faithful Data Scatterplot')
 fig.set_xlabel('Length of eruption (minutes)')
 fig.set_ylabel('Time between eruptions (minutes)')
+
+# Bagian 3 - Clustering
+dat = np.array(df)
+
+# Bagian 4 -  K-means
+k = 2
+kmeans = cluster.KMeans(n_clusters=k)
+kmeans.fit(dat)
+
+labels = kmeans.labels_
+centroid = kmeans.cluster_centers_
