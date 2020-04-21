@@ -1,15 +1,14 @@
 # Bismillah
 # Clustering
 import pandas as pd
-import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-import sklearn
 from sklearn import cluster
 
 # Bagian 1 -  expolratory data analysis
-df = pd.read_csv('D:/Phyton Code/Contoh dari Github/from-data-with-love-master/data/faithful.csv')
+df = pd.read_csv('D:/Phyton Code/Contoh dari Github/from-data-with-love-master\
+/data/faithful.csv')
 df.columns = ['eruptions', 'waiting']
 
 # Bagian 2 - pandas scatter plot API
@@ -30,3 +29,10 @@ kmeans.fit(dat)
 
 labels = kmeans.labels_
 centroid = kmeans.cluster_centers_
+
+# Bagian 5 - Visualization
+for i in range(k):
+    ds = dat[np.where(labels == i)]
+    plt.plot(ds[:, 0], ds[:, 1], 'o', markersize=7)
+    lines = plt.plot(centroid[i, 0], centroid[i, 1], 'kx')
+    plt.setp(lines, ms=15, mew=4)
